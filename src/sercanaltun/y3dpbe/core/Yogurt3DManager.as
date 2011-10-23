@@ -75,10 +75,7 @@ package sercanaltun.y3dpbe.core
 		private function onEngineReady(_e:Yogurt3DEvent):void
 		{
 			m_initialized = true;
-			// We create our default scene
-			Yogurt3D.instance.defaultSetup( stage.width, stage.height ); 
 			
-			Yogurt3D.instance.defaultScene.sceneColor = new Color( 0, 0, 0 );
 			if( m_autostart )
 			{
 				startRender();	
