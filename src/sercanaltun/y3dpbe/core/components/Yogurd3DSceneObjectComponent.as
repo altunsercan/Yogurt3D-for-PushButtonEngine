@@ -7,6 +7,9 @@ package sercanaltun.y3dpbe.core.components
 	import com.yogurt3d.core.sceneobjects.SceneObjectRenderable;
 	import com.yogurt3d.core.sceneobjects.interfaces.IScene;
 	
+	import flash.geom.Point;
+	import flash.geom.Vector3D;
+	
 	public class Yogurd3DSceneObjectComponent extends PBComponent
 	{
 		////////////////////////////////////////////
@@ -77,6 +80,31 @@ package sercanaltun.y3dpbe.core.components
 			}
 		}
 		
+		public function get position():Vector3D
+		{
+			return m_sceneObject.transformation.position.clone();
+		}
+		public function set position( value:Vector3D ):void
+		{
+			/// Check null
+			if( m_sceneObject )
+			{
+				/// Add mesh to sceneObject 
+				m_sceneObject.transformation.position = value;
+			}
+		}
+		/// FOR TEST PURPOSES
+		public function get pointTarget():Point
+		{
+			return null;
+		}
+		public function set pointTarget( value:Point ):void
+		{
+			var vector3d:Vector3D = new Vector3D( value.x/800*6, value.y/600*6, 0);
+			
+			position = vector3d;
+			
+		}
 		////////////////////////////////////////////
 		// Component Implementation
 		////////////////////////////////////////////
