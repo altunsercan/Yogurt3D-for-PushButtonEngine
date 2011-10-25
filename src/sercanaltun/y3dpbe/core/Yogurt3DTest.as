@@ -17,7 +17,7 @@ package sercanaltun.y3dpbe.core
 	import com.yogurt3d.presets.primitives.meshs.SphereMesh;
 	import com.yogurt3d.presets.renderers.molehill.MolehillRenderer;
 	
-	import sercanaltun.y3dpbe.core.components.Yogurd3DSceneObjectComponent;
+	import sercanaltun.y3dpbe.core.components.Yogurt3DSceneObjectComponent;
 	import sercanaltun.y3dpbe.core.components.Yogurt3DCameraComponent;
 	
 	public class Yogurt3DTest extends PBGroup
@@ -33,7 +33,13 @@ package sercanaltun.y3dpbe.core
 			
 			yogurtManager.init3D( onYogurt3DInitialized );
 			
+		}
+		public override function destroy():void
+		{
+			/// Don't forget to clean up yogurt3d
 			
+			yogurtManager.removeContextByName("defaultContext");
+			yogurtManager.stopRender();
 		}
 		public function onYogurt3DInitialized():void
 		{
@@ -61,7 +67,7 @@ package sercanaltun.y3dpbe.core
 			var obj:PBGameObject = new PBGameObject("SphereObject");
 			obj.owningGroup = this;
 			// Add SceneObjectComponent
-			var sceneObjComp:Yogurd3DSceneObjectComponent = new Yogurd3DSceneObjectComponent();
+			var sceneObjComp:Yogurt3DSceneObjectComponent = new Yogurt3DSceneObjectComponent();
 			sceneObjComp.name = "scObjComp";
 			sceneObjComp.scene = yogurtManager.defaultContext.scene;  /// Give reference to scene which sceneobject belongs to
 			sceneObjComp.geometry = new SphereMesh( 5 );
@@ -73,11 +79,11 @@ package sercanaltun.y3dpbe.core
 			// Add a moving one this time
 			obj = new PBGameObject("CubeObject");
 			obj.owningGroup = this;
-			sceneObjComp = new Yogurd3DSceneObjectComponent();
+			sceneObjComp = new Yogurt3DSceneObjectComponent();
 			sceneObjComp.name = "scObjComp";
 			sceneObjComp.scene = yogurtManager.defaultContext.scene;  
 			sceneObjComp.geometry = new BoxMesh( 2, 2, 2 );
-			sceneObjComp.material = new MaterialFill( 0xFFCCCC, 0.5);
+			sceneObjComp.material = new MaterialFill( 0xFFCCCC, 1);
 			
 			obj.addComponent( sceneObjComp ); 
 			const mfc:SimplestMouseFollowComponent = new SimplestMouseFollowComponent();
@@ -89,5 +95,7 @@ package sercanaltun.y3dpbe.core
 			yogurtManager.defaultContext.camera.transformation.z = 20; /// Shift camera back in z axis so we would be outside of sphere
 			
 		}
+		
+		
 	}
 }
