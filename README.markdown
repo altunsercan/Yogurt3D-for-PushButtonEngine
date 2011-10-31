@@ -1,35 +1,21 @@
-PUSHBUTTON ENGINE
+Y3D for PUSHBUTTON ENGINE
 =================
 
-Welcome to the [PushButton Engine](http://www.pushbuttonengine.com)!
+Hello everyone,
+This is a little side project to implement Y3D in PBE2.
 
-PushButton Engine is a framework for Flash game development. Build your game 
-with reusable gameplay, physics, rendering, and networking components - some 
-written by others, and some written by you. There are lots of great libraries 
-for game development on Flash, and PBEngine helps you use them more 
-effectively.
+PBE2 is not officially released yet ( i guess ) but you can still check PBE2 branch at:
+https://github.com/PushButtonLabs/PushButtonEngine
+This project is forked from it so you don't need to pull it separately
 
-PushButton Engine has been used by PushButton Labs, Playdom, Zynga, Hive7 and other developers in commercial games.
+Also you will need latest Yogurt3D which you can find here:
+https://github.com/yogurt3d/Yogurt3D
+You will need to download this separately and use it as library in your project
+
+Yogurt3D requires Flash 11, keep that in mind...  
+
 
 Next Steps
 ----------
 
-Open PBEDemos.as and start reading. The repo includes several demo applications with full comments.
-
-PBE needs the following compiler arguments: --keep-as3-metadata+=TypeHint,EditorData,Embed,Inject,PostInject
-
-* Documentation is at [http://pushbuttonengine.com/docs/](http://pushbuttonengine.com/docs/)
-* Forums are at [http://pushbuttonengine.com/forum/](http://pushbuttonengine.com/forum/)
-* Follow [@PushButtonLabs](http://twitter.com/pushbuttonlabs) and/or [@BenGarney](http://twitter.com/bengarney)
-* Join us on IRC: #pbengine on irc.freenode.net
-
-Contributing & Details
-----------------------
-
-Visit the official PBE repository at GitHub: [http://github.com/PushButtonLabs/PushButtonEngine](http://github.com/PushButtonLabs/PushButtonEngine). Follow it for updates. Fork PBE and submit your improvements!  ([Forking Instructions](http://help.github.com/forking/))
-
-The PushButton Engine is covered under the MIT license in its entirety,
-not including 3rd party components. Please read LICENSE for more 
-information on the MIT license.
-
-Copyright 2009-2011 PushButton Labs, LLC. All rights reserved.
+I will start covering basic functionality by implementing tutorials in www.yogurt3d.com.tr

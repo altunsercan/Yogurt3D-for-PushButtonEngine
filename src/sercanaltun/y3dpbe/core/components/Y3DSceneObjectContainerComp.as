@@ -3,7 +3,6 @@ package sercanaltun.y3dpbe.core.components
 	import com.pblabs.core.PBComponent;
 	import com.pblabs.core.PBGameObject;
 	import com.yogurt3d.core.sceneobjects.SceneObjectContainer;
-	import com.yogurt3d.core.sceneobjects.interfaces.ISceneObjectContainer;
 	
 	import sercanaltun.y3dpbe.core.ns.y3d_hidden;
 	
@@ -12,7 +11,7 @@ package sercanaltun.y3dpbe.core.components
 		////////////////////////////////////////////
 		// Attribute
 		////////////////////////////////////////////
-		protected var m_sceneObjCont:ISceneObjectContainer;
+		protected var m_sceneObjCont:SceneObjectContainer;
 		
 		////////////////////////////////////////////
 		// Constructor
