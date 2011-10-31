@@ -1,5 +1,7 @@
-package sercanaltun.y3dpbe.core
+package sercanaltun.y3dpbe.test
 {
+	import com.pblabs.PBE;
+	import com.pblabs.core.PBGame;
 	import com.pblabs.core.PBGameObject;
 	import com.pblabs.core.PBGroup;
 	import com.pblabs.simplest.SimplestMouseFollowComponent;
@@ -17,10 +19,15 @@ package sercanaltun.y3dpbe.core
 	import com.yogurt3d.presets.primitives.meshs.SphereMesh;
 	import com.yogurt3d.presets.renderers.molehill.MolehillRenderer;
 	
-	import sercanaltun.y3dpbe.core.components.Yogurt3DSceneObjectComponent;
-	import sercanaltun.y3dpbe.core.components.Yogurt3DCameraComponent;
+	import flash.geom.Vector3D;
 	
-	public class Yogurt3DTest extends PBGroup
+	import sercanaltun.y3dpbe.core.Yogurt3DManager;
+	import sercanaltun.y3dpbe.core.components.Y3DSceneObjectContainerComp;
+	import sercanaltun.y3dpbe.core.components.Y3DSceneObjectRenderableComp;
+	import sercanaltun.y3dpbe.core.components.Yogurt3DCameraComponent;
+	import sercanaltun.y3dpbe.test.comp.TestRotator;
+	
+	public class Y3DQuickStartTest extends PBGroup
 	{
 		
 		[Inject]
@@ -64,35 +71,51 @@ package sercanaltun.y3dpbe.core
 			//yogurtManager.useDefaultSetup( 800, 600 );
 			
 			/// Create your first 3D object
-			var obj:PBGameObject = new PBGameObject("SphereObject");
-			obj.owningGroup = this;
+			var cube1:PBGameObject = new PBGameObject("Cube1");
+			cube1.owningGroup = this;
 			// Add SceneObjectComponent
-			var sceneObjComp:Yogurt3DSceneObjectComponent = new Yogurt3DSceneObjectComponent();
+			var sceneObjComp:Y3DSceneObjectRenderableComp = new Y3DSceneObjectRenderableComp();
 			sceneObjComp.name = "scObjComp";
-			sceneObjComp.scene = yogurtManager.defaultContext.scene;  /// Give reference to scene which sceneobject belongs to
-			sceneObjComp.geometry = new SphereMesh( 5 );
-			sceneObjComp.material = new MaterialFill( 0xCCFFCC, 0.5 );
+			sceneObjComp.geometry = new BoxMesh();
+			sceneObjComp.material = new MaterialFill( 0x00FF00 );
+			sceneObjComp.position = new Vector3D( -10, 0, 0 );
 			
-			obj.addComponent( sceneObjComp ); /// Don't forget to add the component ( No shame, I did too )
+			cube1.addComponent( sceneObjComp ); /// Don't forget to add the component ( No shame, I did too )
+			cube1.initialize();
 			
-			obj.initialize();
-			// Add a moving one this time
-			obj = new PBGameObject("CubeObject");
-			obj.owningGroup = this;
-			sceneObjComp = new Yogurt3DSceneObjectComponent();
+			// Add Another One
+			var cube2:PBGameObject  = new PBGameObject("Cube2");
+			cube2.owningGroup = this;
+			sceneObjComp = new Y3DSceneObjectRenderableComp();
 			sceneObjComp.name = "scObjComp";
-			sceneObjComp.scene = yogurtManager.defaultContext.scene;  
-			sceneObjComp.geometry = new BoxMesh( 2, 2, 2 );
-			sceneObjComp.material = new MaterialFill( 0xFFCCCC, 1);
+			sceneObjComp.geometry = new BoxMesh();
+			sceneObjComp.material = new MaterialFill( 0x0000FF);
+			sceneObjComp.position = new Vector3D( 10, 0, 0 );
 			
-			obj.addComponent( sceneObjComp ); 
-			const mfc:SimplestMouseFollowComponent = new SimplestMouseFollowComponent();
-			mfc.targetProperty = "@scObjComp.pointTarget";
+			cube2.addComponent( sceneObjComp ); 
 			
-			obj.addComponent(mfc, "mouse");
-			obj.initialize();
+			cube2.initialize();
 			
-			yogurtManager.defaultContext.camera.transformation.z = 20; /// Shift camera back in z axis so we would be outside of sphere
+			/// A container to hold them as a 3D Group
+			var container:PBGameObject = new PBGameObject("Container");
+			container.owningGroup = this;
+			var sceneContComp:Y3DSceneObjectContainerComp = new Y3DSceneObjectContainerComp();
+			sceneContComp.name = "scContComp";
+			sceneContComp.scene = yogurtManager.defaultContext.scene;  /// Give reference to scene which sceneobject belongs to
+			sceneContComp.addChild( cube1 );
+			sceneContComp.addChild( cube2 );
+			container.addComponent( sceneContComp );
+			
+			var rotator:TestRotator = new TestRotator();
+			rotator.name = "rotateComp";
+			rotator.rotateTarget = "@scContComp.rotationY";
+			container.addComponent( rotator );
+			container.initialize();
+			
+			/////// Set up camera
+			yogurtManager.defaultContext.camera.transformation.z = 100;
+			yogurtManager.defaultContext.camera.transformation.y = 10;
+			yogurtManager.defaultContext.camera.transformation.lookAt( new Vector3D(0, 0, 0 ) );
 			
 		}
 		

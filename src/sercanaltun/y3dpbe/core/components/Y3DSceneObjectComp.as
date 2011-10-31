@@ -1,47 +1,45 @@
 package sercanaltun.y3dpbe.core.components
 {
 	import com.pblabs.core.PBComponent;
-	import com.yogurt3d.core.geoms.interfaces.IMesh;
-	import com.yogurt3d.core.materials.base.Material;
-	import com.yogurt3d.core.sceneobjects.SceneObject;
-	import com.yogurt3d.core.sceneobjects.SceneObjectRenderable;
 	import com.yogurt3d.core.sceneobjects.interfaces.IScene;
+	import com.yogurt3d.core.sceneobjects.interfaces.ISceneObject;
 	
 	import flash.display.Stage;
 	import flash.events.Event;
-	import flash.geom.Point;
 	import flash.geom.Vector3D;
 	
-	public class Yogurt3DSceneObjectComponent extends PBComponent
+	import sercanaltun.y3dpbe.core.ns.y3d_hidden;
+	
+	public class Y3DSceneObjectComp extends PBComponent
 	{
+		use namespace y3d_hidden;
 		////////////////////////////////////////////
 		// Managers
 		////////////////////////////////////////////
 		[Inject]
 		public var stage:Stage;
 		
+		
 		////////////////////////////////////////////
 		// Attribute
 		////////////////////////////////////////////
-		private var m_addedToOwner:Boolean;
-		private var m_addedToScene:Boolean;
-		
-		private var m_y3dScene:IScene;
-		private var m_sceneObject:SceneObjectRenderable;
-		
+		protected var m_addedToOwner:Boolean;
+		protected var m_addedToScene:Boolean;
+		protected var m_y3dScene:IScene;
+		y3d_hidden var m_sceneObject:ISceneObject;
 		////////////////////////////////////////////
 		// Constructor
 		////////////////////////////////////////////
-		public function Yogurt3DSceneObjectComponent()
+		public function Y3DSceneObjectComp()
 		{
 			super();
 			m_addedToOwner = false;
 			m_addedToScene = false;
-			m_sceneObject = new SceneObjectRenderable();
 		}
 		////////////////////////////////////////////
 		// Getters and Setters
 		////////////////////////////////////////////
+		// --- Scene
 		public function get scene():IScene
 		{
 			return m_y3dScene;	
@@ -60,35 +58,7 @@ package sercanaltun.y3dpbe.core.components
 				updateContainer();
 			}
 		}
-		
-		public function get geometry():IMesh
-		{
-			return m_sceneObject.geometry;
-		}
-		public function set geometry( value:IMesh ):void
-		{
-			/// Check change
-			if( m_sceneObject && m_sceneObject.geometry != value )
-			{
-				/// Add mesh to sceneObject 
-				m_sceneObject.geometry = value;
-			}
-		}
-		
-		public function get material():Material
-		{
-			return m_sceneObject.material;
-		}
-		public function set material( value:Material ):void
-		{
-			/// Check change
-			if( m_sceneObject && m_sceneObject.material != value )
-			{
-				/// Add mesh to sceneObject 
-				m_sceneObject.material = value;
-			}
-		}
-		
+		/// --- Transformation
 		public function get position():Vector3D
 		{
 			return m_sceneObject.transformation.position.clone();
@@ -102,20 +72,59 @@ package sercanaltun.y3dpbe.core.components
 				m_sceneObject.transformation.position = value;
 			}
 		}
-		/// FOR TEST PURPOSES
-		public function get pointTarget():Point
+		public function get rotationX():Number
 		{
-			return null;
+			if( m_sceneObject)
+			{
+				return m_sceneObject.transformation.rotationX;
+			}
+			return 0;
 		}
-		public function set pointTarget( value:Point ):void
+		public function set rotationX( value:Number ):void
 		{
-			var vector3d:Vector3D = new Vector3D( (value.x-400)/800*20, (value.y-300)/600*-20, 0);
-			
-			position = vector3d;
-			
+			/// Check null
+			if( m_sceneObject )
+			{
+				/// Add mesh to sceneObject 
+				m_sceneObject.transformation.rotationX = value;
+			}
+		}
+		public function get rotationY():Number
+		{
+			if( m_sceneObject)
+			{
+				return m_sceneObject.transformation.rotationY;
+			}
+			return 0;
+		}
+		public function set rotationY( value:Number ):void
+		{
+			/// Check null
+			if( m_sceneObject )
+			{
+				/// Add mesh to sceneObject 
+				m_sceneObject.transformation.rotationY = value;
+			}
+		}
+		public function get rotationZ():Number
+		{
+			if( m_sceneObject)
+			{
+				return m_sceneObject.transformation.rotationZ;
+			}
+			return 0;
+		}
+		public function set rotationZ( value:Number ):void
+		{
+			/// Check null
+			if( m_sceneObject )
+			{
+				/// Add mesh to sceneObject 
+				m_sceneObject.transformation.rotationY = value;
+			}
 		}
 		////////////////////////////////////////////
-		// Component Implementation
+		// PBComponent Implementation
 		////////////////////////////////////////////
 		protected override function onAdd():void
 		{

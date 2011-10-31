@@ -79,7 +79,7 @@ package
     import flash.text.TextFormat;
     
     import sercanaltun.y3dpbe.core.Yogurt3DManager;
-    import sercanaltun.y3dpbe.core.Yogurt3DTest;
+    import sercanaltun.y3dpbe.test.Y3DQuickStartTest;
     
     /**
      * ## PBEDemos?
@@ -122,10 +122,7 @@ package
         // identified by their type. (The molehill demo requires a molehill
         // enabled dev environment and is disabled by default.)
         public var sceneList:Array = 
-            [ SimplestRendererScene, Yogurt3DTest, BindingDemoScene, MouseFollowerScene, 
-                CirclePickupScene, CirclePickupWithTimeManagerScene, 
-                OneButtonDemoScene, TwoButtonDemoScene, CarDemoScene,
-                FSMDemoScene /*, MolehillScene*/ ];
+            [ Y3DQuickStartTest ];
         
         // Keep track of the current demo scene.
         public var currentSceneIndex:int = 0;
