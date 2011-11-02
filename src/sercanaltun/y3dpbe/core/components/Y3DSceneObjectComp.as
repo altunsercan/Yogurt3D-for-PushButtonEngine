@@ -3,6 +3,7 @@ package sercanaltun.y3dpbe.core.components
 	import com.pblabs.core.PBComponent;
 	import com.yogurt3d.core.sceneobjects.interfaces.IScene;
 	import com.yogurt3d.core.sceneobjects.interfaces.ISceneObject;
+	import com.yogurt3d.core.transformations.Transformation;
 	
 	import flash.display.Stage;
 	import flash.events.Event;
@@ -59,6 +60,12 @@ package sercanaltun.y3dpbe.core.components
 			}
 		}
 		/// --- Transformation
+		public function get transformation():Transformation
+		{
+			return m_sceneObject.transformation;
+		}
+		
+		
 		public function get position():Vector3D
 		{
 			return m_sceneObject.transformation.position.clone();

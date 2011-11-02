@@ -50,7 +50,11 @@ package sercanaltun.y3dpbe.core
 				Yogurt3D.instance.init( stage );
 			}else
 			{
-				
+				if( m_autostart )
+				{
+					startRender();	
+				}
+				initCallback();
 			}
 		}
 		
@@ -92,13 +96,13 @@ package sercanaltun.y3dpbe.core
 			
 			var context:Context = new Context();
 			context.renderer 	= _renderer;
-			context.camera 	= _camera;
 			context.scene		= _scene;
+			context.camera 	= _camera;
 			context.viewport	= _viewport;
 			
 			_viewport.setViewport( 0, 0, width, heigth );
 			
-			this.addContext( context, "defaultContext" );
+			this.addContext( context, "defaultContext", true );
 		}
 		////////////////////////////////////////////
 		// Control Functions
