@@ -36,5 +36,17 @@ package sercanaltun.y3dpbe.core.components
 				m_light.type = value;
 			}
 		}
+		public function get attenuation():Vector.<Number>
+		{
+			return m_light.attenuation;	
+		}
+		public function set attenuation( value:Vector.<Number> ):void
+		{
+			/// Check change 
+			if( m_light.attenuation != value )
+			{
+				m_light.attenuation = value;
+			}
+		}
 	}
 }

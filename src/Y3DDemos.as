@@ -80,7 +80,9 @@ package
     
     import sercanaltun.y3dpbe.core.Yogurt3DManager;
     import sercanaltun.y3dpbe.test.Y3DBasicLightTutorial;
+    import sercanaltun.y3dpbe.test.Y3DPointLightTutorial;
     import sercanaltun.y3dpbe.test.Y3DQuickStartTest;
+    import sercanaltun.y3dpbe.test.Y3DTimingTutorial;
     
     /**
      * ## PBEDemos?
@@ -123,7 +125,7 @@ package
         // identified by their type. (The molehill demo requires a molehill
         // enabled dev environment and is disabled by default.)
         public var sceneList:Array = 
-            [ Y3DQuickStartTest, Y3DBasicLightTutorial ];
+            [ Y3DQuickStartTest, Y3DBasicLightTutorial, Y3DTimingTutorial, Y3DPointLightTutorial ];
         
         // Keep track of the current demo scene.
         public var currentSceneIndex:int = 0;

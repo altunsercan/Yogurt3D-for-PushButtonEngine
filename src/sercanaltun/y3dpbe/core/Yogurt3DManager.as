@@ -137,24 +137,48 @@ package sercanaltun.y3dpbe.core
 				m_defaultContext = context;
 			}
 		}
-		public function removeContext(context:Context):void
+		public function removeContext(context:Context, disposeAll:Boolean = true):void
 		{
-			Yogurt3D.instance.contextManager.removeContext( context );
 			var name:String = m_contextStore[ context ];
 			if( name )
-			{
+			{	
+				Yogurt3D.instance.contextManager.removeContext( context );
+				
 				delete m_contextStore[ name ];
 				delete m_contextStore[ context];
+			
+				if( disposeAll )
+				{
+					/// Clear Everything up
+					context.camera.dispose();
+					context.scene.dispose();
+					context.viewport.dispose();
+					context.renderer.dispose();
+					context.dispose();
+				}
+			}
+			if( m_defaultContext == context )
+			{
+				m_defaultContext = null;
 			}
 		}
-		public function removeContextByName( name:String ):void
+		public function removeContextByName( name:String, disposeAll:Boolean=true ):void
 		{
 			var context:Context = m_contextStore[ name ];
-			Yogurt3D.instance.contextManager.removeContext( context );
 			if( context )
 			{
+				Yogurt3D.instance.contextManager.removeContext( context );
 				delete m_contextStore[ name ];
 				delete m_contextStore[ context];
+				if( disposeAll )
+				{
+					/// Clear Everything up
+					context.camera.dispose();
+					context.scene.dispose();
+					context.viewport.dispose();
+					context.renderer.dispose();
+					context.dispose();
+				}
 			}
 			if( m_defaultContext == context )
 			{
