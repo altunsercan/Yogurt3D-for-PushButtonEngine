@@ -1,4 +1,4 @@
-package sercanaltun.y3dpbe.test
+package sercanaltun.y3dpbe.tutorials
 {
 	import com.pblabs.PBE;
 	import com.pblabs.core.PBGame;
@@ -24,8 +24,7 @@ package sercanaltun.y3dpbe.test
 	import sercanaltun.y3dpbe.core.Yogurt3DManager;
 	import sercanaltun.y3dpbe.core.components.Y3DSceneObjectContainerComp;
 	import sercanaltun.y3dpbe.core.components.Y3DSceneObjectRenderableComp;
-	import sercanaltun.y3dpbe.core.components.Yogurt3DCameraComponent;
-	import sercanaltun.y3dpbe.test.comp.TestRotator;
+	import sercanaltun.y3dpbe.tutorials.comp.TestRotator;
 	
 	public class Y3DQuickStartTest extends PBGroup
 	{

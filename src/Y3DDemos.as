@@ -79,10 +79,10 @@ package
     import flash.text.TextFormat;
     
     import sercanaltun.y3dpbe.core.Yogurt3DManager;
-    import sercanaltun.y3dpbe.test.Y3DBasicLightTutorial;
-    import sercanaltun.y3dpbe.test.Y3DPointLightTutorial;
-    import sercanaltun.y3dpbe.test.Y3DQuickStartTest;
-    import sercanaltun.y3dpbe.test.Y3DTimingTutorial;
+    import sercanaltun.y3dpbe.tutorials.Y3DBasicLightTutorial;
+    import sercanaltun.y3dpbe.tutorials.Y3DPointLightTutorial;
+    import sercanaltun.y3dpbe.tutorials.Y3DQuickStartTest;
+    import sercanaltun.y3dpbe.tutorials.Y3DTimingTutorial;
     
     /**
      * ## PBEDemos?

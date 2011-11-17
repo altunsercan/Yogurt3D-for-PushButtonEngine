@@ -1,4 +1,4 @@
-package sercanaltun.y3dpbe.test
+package sercanaltun.y3dpbe.tutorials
 {
 	import com.pblabs.core.PBGameObject;
 	import com.pblabs.core.PBGroup;
@@ -12,7 +12,7 @@ package sercanaltun.y3dpbe.test
 	import sercanaltun.y3dpbe.core.Yogurt3DManager;
 	import sercanaltun.y3dpbe.core.components.Y3DLightComponent;
 	import sercanaltun.y3dpbe.core.components.Y3DSceneObjectRenderableComp;
-	import sercanaltun.y3dpbe.test.comp.TestRotator;
+	import sercanaltun.y3dpbe.tutorials.comp.TestRotator;
 	
 	public class Y3DBasicLightTutorial extends PBGroup
 	{

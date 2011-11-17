@@ -1,4 +1,4 @@
-package sercanaltun.y3dpbe.test.comp
+package sercanaltun.y3dpbe.tutorials.comp
 {
 	import com.pblabs.core.PBComponent;
 	
