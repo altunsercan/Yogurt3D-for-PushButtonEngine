@@ -66,6 +66,8 @@ package sercanaltun.y3dpbe.tutorials
 			context.renderer 	= _renderer;						/// using this renderer
 			
 			yogurtManager.addContext( context, "defaultContext", true );     /// We give Yogurt3D manager this context and we are good to go
+			
+			
 			/// SHORT VERSION: does the same thing above
 			//yogurtManager.useDefaultSetup( 800, 600 );
 			
@@ -116,6 +118,7 @@ package sercanaltun.y3dpbe.tutorials
 			yogurtManager.defaultContext.camera.transformation.y = 10;
 			yogurtManager.defaultContext.camera.transformation.lookAt( new Vector3D(0, 0, 0 ) );
 			
+			yogurtManager.startRender();
 		}
 		
 		

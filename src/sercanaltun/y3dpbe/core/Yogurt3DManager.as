@@ -126,7 +126,7 @@ package sercanaltun.y3dpbe.core
 		public function addContext(context:Context, name:String = "", defaultContext:Boolean = false ):void
 		{
 			Yogurt3D.instance.contextManager.addContext( context );
-			m_contextStore[ name ] = context;
+			stage.addChild( context.viewport );
 			if( name )
 			{
 				m_contextStore[ name ] = context;
