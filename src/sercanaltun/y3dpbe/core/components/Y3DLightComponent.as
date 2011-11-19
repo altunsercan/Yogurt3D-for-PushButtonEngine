@@ -5,7 +5,7 @@ package sercanaltun.y3dpbe.core.components
 	
 	import sercanaltun.y3dpbe.core.ns.y3d_hidden;
 
-	public class Y3DLightComponent extends Y3DSceneObjectContainerComp
+	public class Y3DLightComponent extends Y3DSceneObjectComp
 	{
 		////////////////////////////////////////////
 		// Attribute
@@ -18,7 +18,6 @@ package sercanaltun.y3dpbe.core.components
 		{
 			super();
 			m_light = new Light();
-			m_sceneObjCont = m_light;
 			y3d_hidden::m_sceneObject = m_light;
 		}
 		////////////////////////////////////////////

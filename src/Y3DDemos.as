@@ -56,17 +56,6 @@ package
     import com.pblabs.time.TimeManager;
     import com.pblabs.util.TypeUtility;
     
-    import demos.demo_01_simplestRenderer.SimplestRendererScene;
-    import demos.demo_02_bindingDemo.BindingDemoScene;
-    import demos.demo_03_mouseFollower.MouseFollowerScene;
-    import demos.demo_04_circlePickup.CirclePickupScene;
-    import demos.demo_05_circlePickupWithTimeManager.CirclePickupWithTimeManagerScene;
-    import demos.demo_06_oneButtonDemo.OneButtonDemoScene;
-    import demos.demo_07_twoButtonDemo.TwoButtonDemoScene;
-    import demos.demo_08_carDemo.CarDemoScene;
-    import demos.demo_09_stateMachineDemo.FSMDemoScene;
-    import demos.molehill.MolehillScene;
-    
     import flash.display.Sprite;
     import flash.display.Stage;
     import flash.display.StageAlign;
