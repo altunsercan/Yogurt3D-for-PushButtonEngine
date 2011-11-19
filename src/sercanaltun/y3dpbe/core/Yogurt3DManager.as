@@ -47,7 +47,7 @@ package sercanaltun.y3dpbe.core
 				/// if the Yogurt3DManager is initialized for the first time
 				/// start Yogurt3DEngine
 				Yogurt3D.instance.addEventListener( Yogurt3DEvent.READY , onEngineReady );
-				Yogurt3D.instance.init( stage );
+				Yogurt3D.instance.init( );
 			}else
 			{
 				if( m_autostart )
